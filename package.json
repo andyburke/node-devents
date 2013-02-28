@@ -1,0 +1,25 @@
+{
+  "name" : "devents",
+  "description" : "A simple Redis-based distributed event emitter.",
+  "author" : "Andy Burke <aburke@bitflood.org>",
+  "url" : "https://github.com/andyburke/node-devents",
+  "contributors": [
+  ],
+  "keywords" : [
+    "events",
+    "distributed",
+    "eventemitter"
+  ],
+  "main" : "./devents.js",
+  "version" : "0.0.1",
+  "repository" : { 
+    "type" : "git", 
+    "url" : "git://github.com/andyburke/node-devents.git"
+  },
+  "dependencies": {
+    "redis": "0.8.x"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}
