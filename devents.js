@@ -35,13 +35,11 @@ function DistributedEventEmitter( options ) {
     
     self.sub.on( 'message', function( channel, message ) {
         var event = JSON.parse( message );
-        self._emit.apply( self, [ event.event ].concat( event.args ) );
+        events.EventEmitter.emit.apply( self, [ event.event ].concat( event.args ) );
     });
 }
 
 util.inherits( DistributedEventEmitter, events.EventEmitter );
-
-DistributedEventEmitter.prototype._emit = DistributedEventEmitter.prototype.emit;
 
 DistributedEventEmitter.prototype.emit = function( event ) {
     var self = this;
@@ -57,7 +55,7 @@ DistributedEventEmitter.prototype.emit = function( event ) {
     }
     else
     {
-        return self._emit( event, args );    
+        return events.EventEmitter.emit.apply( self, args );
     }
 }
 
