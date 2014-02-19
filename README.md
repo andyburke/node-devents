@@ -77,3 +77,7 @@ their latency locally as one would expect.
 * Fork the project.
 * Make your feature addition or bug fix, preferably in a branch.
 * Send me a pull request.
+
+## License
+
+node-devents is under the BSD license and you may use the code for any purpose you like with or without attribution.
