@@ -25,11 +25,17 @@ function DistributedEventEmitter( options ) {
         self.sub.on( 'error', EmitError );
 
         self.pub.on( 'connect', function() {
+            if (opts.db) {
+                self.pub.select(opts.db);
+            }
             self.pubConnected = true; 
             events.EventEmitter.prototype.emit.apply( self, [ 'connect', 'pub', self.pub ] );
         });
         
         self.sub.on( 'connect', function() {
+            if (opts.db) {
+                self.sub.select(opts.db);
+            }
             self.sub.on( 'subscribe', function( channel, count ) {
                 self.subConnected = true;
                 events.EventEmitter.prototype.emit.apply( self, [ 'connect', 'sub', self.sub ] );
